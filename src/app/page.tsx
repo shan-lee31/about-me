@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <div className="h-full w-screen bg-black">
+    <div className="h-full w-screen">
       <div className="grid justify-center">
         <Bar />
         <Separator className="my-4" />

@@ -1,5 +1,10 @@
-export default function Project () {
+import ProjectTabs from "@/components/project/projectTabs";
+
+
+export default function Project() {
     return (
-        <p> this is project </p>
+        <div className="flex justify-center">
+            <ProjectTabs />
+        </div>
     )
 }
