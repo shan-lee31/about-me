@@ -3,7 +3,7 @@ import SingleClick from "./singleClick";
 
 const ProjectTabs = () => {
     return (
-        <Tabs defaultValue="singleClick" className="">
+        <Tabs defaultValue="singleClick" className="text-center">
             <TabsList>
                 <TabsTrigger value="singleClick">Single Click</TabsTrigger>
                 <TabsTrigger value="chat">Chat</TabsTrigger>

@@ -1,13 +1,17 @@
 "use client"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuPortal, DropdownMenuSubContent } from "@/components/ui/dropdown-menu";
-import { User, CreditCard, Settings, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from "../ui/menubar";
+import { List, Sun } from "lucide-react";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const Bar = () => {
   const router = useRouter();
 
-  const navigateToAbout =  () => {
+  const navigateToHome = () => {
+    router.push("/")
+  }
+
+  const navigateToAbout = () => {
     router.push("/about")
   }
 
@@ -20,28 +24,44 @@ const Bar = () => {
   }
 
   return (
-    <div className="mt-5">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline">Here</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
-          <DropdownMenuGroup>
-            <DropdownMenuItem onClick={navigateToAbout}>
-              <User />
-              <span>About</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={navigateToProject}>
-              <CreditCard />
-              <span>Project</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={navigateToContact}>
-              <PhoneCall />
-              <span>Contact</span>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <div className="grid grid-flow-col">
+      <div className="hover:cursor-pointer">
+        <DotLottieReact
+          src="logo.lottie"
+          loop
+          autoplay
+          style={{ width: "150px" }}
+          onClick={navigateToHome}
+        />
+      </div>
+      <div className="justify-center mb-5">
+        <Menubar className="hidden md:flex mt-5">
+          <MenubarMenu>
+            <MenubarTrigger onClick={navigateToAbout}>About</MenubarTrigger>
+          </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTrigger onClick={navigateToProject}>Project</MenubarTrigger>
+          </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTrigger onClick={navigateToContact}>Contact</MenubarTrigger>
+          </MenubarMenu>
+        </Menubar>
+        <Menubar className="flex flex-col place-self-center md:hidden">
+          <MenubarMenu>
+            <MenubarTrigger>
+              <List size={30} />
+            </MenubarTrigger>
+            <MenubarContent>
+              <MenubarItem onClick={navigateToAbout}>About</MenubarItem>
+              <MenubarItem onClick={navigateToProject}>Project</MenubarItem>
+              <MenubarItem onClick={navigateToContact}>Contact</MenubarItem>
+            </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
+      </div>
+      <div className="place-self-center">
+        <Sun size={30}/>
+      </div>
     </div>
   )
 }

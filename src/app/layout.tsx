@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Bar from "@/components/menu-bar/menuBar";
+import { Separator } from "@/components/ui/separator";
+import { Jua } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const jua = Jua({
+  subsets: ["latin"],
+  weight: "400", // Jua only has one weight, 400
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
 
 export const metadata: Metadata = {
   title: "about-me",
@@ -26,7 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${jua.className} antialiased bg-background`}>
+        <div className="">
+          <Bar />
+        </div>
+        <Separator />
         {children}
       </body>
     </html>
