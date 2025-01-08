@@ -28,7 +28,7 @@ export default function RootLayout({
         <div className="">
           <Bar />
         </div>
-        <Separator />
+        <Separator className="mb-5" />
         {children}
       </body>
     </html>

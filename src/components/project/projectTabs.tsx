@@ -1,15 +1,26 @@
+"use client"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import SingleClick from "./singleClick";
+import { useRouter, useSearchParams } from "next/navigation"
+import CommentBoard from "./commentBoard";
+import WordCloud from "./wordCloud";
 
 const ProjectTabs = () => {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const activeTab = searchParams.get("tab") || "commentBoard"; // Default tab
+
+
+    const onTabChange = (tab: string) => {
+        router.push(`?tab=${tab}`, { scroll: false });
+    }
     return (
-        <Tabs defaultValue="singleClick" className="text-center">
+        <Tabs defaultValue={activeTab} className="text-center" onValueChange={onTabChange}>
             <TabsList>
-                <TabsTrigger value="singleClick">Single Click</TabsTrigger>
-                <TabsTrigger value="chat">Chat</TabsTrigger>
+                <TabsTrigger value="commentBoard">Comment Board</TabsTrigger>
+                <TabsTrigger value="wordcloud">Cloud Chart</TabsTrigger>
             </TabsList>
-            <TabsContent value="singleClick"><SingleClick /></TabsContent>
-            <TabsContent value="chat">Chat.</TabsContent>
+            <TabsContent value="commentBoard"><CommentBoard /></TabsContent>
+            <TabsContent value="wordcloud"><WordCloud /></TabsContent>
         </Tabs>
     )
 }
