@@ -24,7 +24,7 @@ export async function getComment() {
 
 export async function sendComment(boardId: string, text: string) {
   try {
-    const response = await axios.post(`${BE_API_URL}comments/add`, {
+    const response = await axios.post(`${BE_API_URL}comments`, {
       text: text,
       createdBy: "user"
     }, {
