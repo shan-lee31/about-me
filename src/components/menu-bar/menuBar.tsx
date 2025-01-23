@@ -25,16 +25,16 @@ const Bar = () => {
 
   return (
     <div className="grid grid-flow-col">
-      <div className="hover:cursor-pointer">
+      <div className="hover:cursor-pointer grid-col-1">
         <DotLottieReact
           src="logo.lottie"
           loop
           autoplay
-          style={{ width: "150px" }}
+          style={{ width: "90px" }}
           onClick={navigateToHome}
         />
       </div>
-      <div className="justify-center mb-5">
+      <div className="place-self-center mb-5">
         <Menubar className="hidden md:flex mt-5">
           <MenubarMenu>
             <MenubarTrigger onClick={navigateToAbout}>About</MenubarTrigger>
@@ -46,10 +46,10 @@ const Bar = () => {
             <MenubarTrigger onClick={navigateToContact}>Contact</MenubarTrigger>
           </MenubarMenu>
         </Menubar>
-        <Menubar className="flex flex-col place-self-center md:hidden">
+        <Menubar className="mt-5 flex md:hidden">
           <MenubarMenu>
             <MenubarTrigger>
-              <List size={30} />
+              Menu
             </MenubarTrigger>
             <MenubarContent>
               <MenubarItem onClick={navigateToAbout}>About</MenubarItem>
@@ -60,7 +60,7 @@ const Bar = () => {
         </Menubar>
       </div>
       <div className="place-self-center">
-        <Sun size={30}/>
+        <Sun size={30} />
       </div>
     </div>
   )

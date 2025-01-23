@@ -14,22 +14,41 @@ export default function Home() {
   return (
     <div className="h-full w-screen bg-background">
       <div className="flex flex-col items-center justify-center relative h-screen mt-30 hidden md:flex">
-        <div className="absolute z-10 -skew-y-12 -rotate-30"> 
+        <div className="absolute z-10 -skew-y-12 -rotate-30">
           <span className="text-6xl">
-          <TypeIt options={{
-            loop: false,
-            breakLines: true,
-            strings: ["Hello World!", "I am Pui Shan."],
-            waitUntilVisible: true,
-            afterStep: function (instance: any) {
-              instance.getElement().style.color = getRandomColor();
-            },
-          }} >
-          </TypeIt>
-        </span>
+            <TypeIt options={{
+              loop: false,
+              breakLines: true,
+              strings: ["Hello World!", "I am Pui Shan."],
+              waitUntilVisible: true,
+              afterStep: function (instance: any) {
+                instance.getElement().style.color = getRandomColor();
+              },
+            }} >
+            </TypeIt>
+          </span>
         </div>
         <div className="absolute z-0">
           <img src="pc2.png" alt="pc" className="w-full h-auto" />
+        </div>
+      </div>
+      <div className="flex flex-col items-center justify-center relative h-screen md:hidden">
+        <div className="absolute z-10 skew-y-12">
+          <span className="text-2xl">
+            <TypeIt options={{
+              loop: false,
+              breakLines: true,
+              strings: ["Hello World!", "I am Pui Shan."],
+              waitUntilVisible: true,
+              afterStep: function (instance: any) {
+                instance.getElement().style.color = getRandomColor();
+              },
+            }} >
+            </TypeIt>
+          </span>
+        </div>
+        <div className="absolute z-0">
+          <img src="screen2.png" alt="pc" className="w-full h-auto" />
         </div>
       </div>
     </div>
