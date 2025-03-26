@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <div className="h-full w-screen bg-background">
-      <div className="flex flex-col items-center relative h-screen mt-30 md:flex">
-        <div className={`md? w-1/2: w-3/4 mt-10`}>
+      <div className="flex flex-col items-center relative h-screen mt-30">
+        <div className={`md:w-1/2 w-3/4 mt-10`}>
           <div className="mt-10" id="about">
             <Intro />
           </div>

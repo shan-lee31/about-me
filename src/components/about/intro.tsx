@@ -21,7 +21,7 @@ const Intro = () => {
         <>
             <div className="place-items-center md:hidden">
                 <div className="flex flex-row justify-center mb-5">
-                    <img alt="me" src="globe.svg" width={70} height={70} className="rounded-xl" />
+                    <img alt="me" src="grad1.png" width={100} height={100} className="rounded-xl" />
                 </div>
             </div>
             <div className="grid grid-cols-4 md:gap-4 gap-2">
@@ -33,14 +33,19 @@ const Intro = () => {
                 </div>
                 <div className="place-items-center hidden md:flex">
                     <div className="">
-                        <img alt="me" src="globe.svg" width={70} height={70} className="rounded-xl" />
+                        <img alt="me" src="grad1.png" width={120} height={120} className="rounded-xl" />
                     </div>
                 </div>
-                <div className="col-span-3 mt-10">
+                <div className="col-span-full mt-10">
                     <Label className="text-md">
                         Hi 👋🏼 — I'm a junior software developer based in
-                        Selangor,Malaysia.
-                        My focus is on ....
+                        Selangor,Malaysia. 
+                        <span><br/></span>Just started my career about 1.5 years. 
+                        Mainly working on web application and had the opportunity to involve in mobile 
+                        development during my degree time.
+
+                        
+
                     </Label>
                     <br />
                 </div>
@@ -51,15 +56,15 @@ const Intro = () => {
                     className="hover:cursor-pointer" />}</p>
             <div>
                 {isOpen ?
-                    <div className="flex mt-10 bg-muted-foreground rounded-md p-3">
+                    <div className="flex mt-10 border rounded-md p-3">
                         {Object.entries(techAndSkills).map(([tech, skills]) => (
-                            <div className="grid grid-cols-3" key={tech}>
-                                <div className="col-span-1">
+                            <div className="grid md:grid-cols-3 gap-4 mr-2" key={tech}>
+                                <div className="md:col-span-1 justify-center">
 
-                                    <Label>{tech}</Label>
+                                    <Label className="underline">{tech}</Label>
                                     {skills.map((x) => (
-                                        <div className="m-2 flex" key={x}>
-                                            <Label className="border rounded-xl p-3">{x}</Label>
+                                        <div className="mb-2 flex mt-2" key={x}>
+                                            <Label className="border rounded-xl p-3 md:text-md text-xs">{x}</Label>
                                         </div>
                                     ))}
                                 </div>
