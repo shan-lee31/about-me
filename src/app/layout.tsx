@@ -3,11 +3,11 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Bar from "@/components/menu-bar/menuBar";
 import { Separator } from "@/components/ui/separator";
-import { Jua } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const jua = Jua({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: "400", // Jua only has one weight, 400
+  weight: ["100","400","900"]
 });
 
 
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jua.className} antialiased bg-background`}>
+        className={`${poppins.className} antialiased bg-background`}>
         <div className="">
           <Bar />
         </div>
