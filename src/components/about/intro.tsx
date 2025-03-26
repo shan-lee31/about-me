@@ -25,7 +25,7 @@ const Intro = () => {
                 </div>
             </div>
             <div className="grid grid-cols-4 md:gap-4 gap-2">
-                <div className="md:col-span-3 col-span-full content-center">
+                <div className="md:col-span-3 col-span-full text-center flex flex-col items-center justify-center">
                     <Label className="md:text-6xl flex text-3xl">
                         Lee Pui Shan
                     </Label>
