@@ -20,7 +20,7 @@ const Intro = () => {
         "Tools": ["Insomnia", "Docker"],
     }
 
-    const intro = "Hi 👋🏼 — I'm a junior software developer based in Selangor,Malaysia, who's always up for a little tech adventure.\nI may not call it love, but there's something exciting about solving problems, learning new things, and making cool stuff happen! ✨ Every challenge feels like a puzzle waiting to be cracked,and every project is a chance to build something meaningful. I'm here to explore, grow, and most importantly—contribute in any way I can. Let’s create something awesome together! 🚀"
+    const intro = "Hi 👋🏼 — I'm a junior software developer based in Selangor,Malaysia, who's always up for a little tech adventure.\nI may not call it love, but there's something exciting about solving problems, learning new things, and making cool stuff happen! ✨ Every challenge feels like a puzzle waiting to be cracked,and every project is a chance to build something meaningful. I'm here to explore, grow, and most importantly—contribute in any way I can. \nLet’s create something awesome together! 🚀"
     return (
         <>
             <div className="place-items-center md:hidden">
@@ -40,12 +40,13 @@ const Intro = () => {
                         <img alt="me" src="grad1.png" width={120} height={120} className="rounded-xl" />
                     </div>
                 </div>
-                <div className="col-span-full mt-10">
-                    {intro.split("\n").map((line, index) => (
+
+                {intro.split("\n").map((line, index) => (
+                    <div className="col-span-full mt-2" key={index}>
                         <p key={index} className="text-justify">{line}</p>
-                    ))}
-                    <br />
-                </div>
+                    </div>
+                ))}
+
 
             </div>
             <p className="flex mt-5 text-[#50d71e]">View My Skills {isOpen ? <ChevronUp onClick={() => setIsOpen(!isOpen)}
