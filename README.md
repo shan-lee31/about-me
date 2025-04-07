@@ -1,4 +1,4 @@
-# 💳 Portfolio
+# 👩🏻‍💻 Portfolio 
 
 Welcome to my personal portfolio website! This site serves as a showcase of my working experience, skills, and some side projects. 
 To view my portfolio: [Shan's Portfolio](https://about-me-lemon-five.vercel.app/)
@@ -8,14 +8,6 @@ To view my portfolio: [Shan's Portfolio](https://about-me-lemon-five.vercel.app/
 - **Framework**: Next.js
 - **Styling**: Tailwind CSS
 - **Hosting**: Vercel
-
-## 🚀 What I Learned
-
-- Building responsive UIs with Tailwind's utility classes
-- Using custom breakpoints (`sm`, `md`, `lg`, etc.)
-- Managing layouts using `grid` and `flex` systems
-- Implementing conditional rendering based on screen size
-- Structuring semantic HTML and accessible forms
 
 ## ✨ Features
 
