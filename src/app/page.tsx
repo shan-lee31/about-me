@@ -1,21 +1,28 @@
-import { Main } from "@/components/main-content/Main";
-import { Story } from "@/components/main-content/Story";
-import Bar from "@/components/menu-bar/menuBar";
-import { Separator } from "@/components/ui/separator";
+"use client"
+
+import Experience from "@/components/about/experience"
+import Intro from "@/components/about/intro"
+import ContactMe from "@/components/contact/contact"
+import ProjectTabs from "@/components/project/projectTabs"
 
 export default function Home() {
+
   return (
-    <div className="h-full w-screen bg-black">
-      <div className="grid justify-center">
-        <Bar />
-        <Separator className="my-4" />
-      </div>
-      <div className="grid grid-cols-2 gap-4 mt-8">
-        <div className="grid justify-center self-center h-[1920px]">
-          <Main />
+    <div className="h-full w-screen bg-background dark:text-white">
+      <div className="flex flex-col items-center relative h-screen mt-30">
+        <div className={`md:w-1/2 w-3/4 mt-10`}>
+          <div className="mt-10" id="about">
+            <Intro />
+          </div>
         </div>
-        <div className="grid box-border max-w-[405px] max-h-[720px] p-4 border-40 bg-white rounded-md">
-          <Story />
+        <div className="justify-center justify-items-center mt-10 w-3/4" id="experience">
+          <Experience />
+        </div>
+        <div className="justify-center justify-items-center mt-10 w-3/4" id="project">
+          <ProjectTabs />
+        </div>
+        <div className="justify-center justify-items-center mt-10 w-3/4" id="contact">
+          <ContactMe />
         </div>
       </div>
     </div>
