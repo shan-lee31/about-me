@@ -1,16 +1,15 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import SingleClick from "./singleClick";
+"use client"
+import { Label } from "../ui/label";
+import ProjectCards from "./projectCards";
 
 const ProjectTabs = () => {
     return (
-        <Tabs defaultValue="singleClick" className="text-center">
-            <TabsList>
-                <TabsTrigger value="singleClick">Single Click</TabsTrigger>
-                <TabsTrigger value="chat">Chat</TabsTrigger>
-            </TabsList>
-            <TabsContent value="singleClick"><SingleClick /></TabsContent>
-            <TabsContent value="chat">Chat.</TabsContent>
-        </Tabs>
+        <>
+            <Label className="font-bold text-2xl">Projects</Label>
+            <div className="mt-10 border h-auto w-full">
+                <ProjectCards />
+            </div>
+        </>
     )
 }
 

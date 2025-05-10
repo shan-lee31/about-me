@@ -1,43 +1,65 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger } from "../ui/menubar";
-import { List, Sun } from "lucide-react";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { Home, List, Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Bar = () => {
+  const [theme, setTheme] = useState("light");
+
   const router = useRouter();
 
-  const navigateToHome = () => {
-    router.push("/")
+  const navigateToAbout = () => {
+    router.push("#about")
   }
 
-  const navigateToAbout = () => {
-    router.push("/about")
+  const navigateToExperience = () => {
+    router.push("#experience")
   }
 
   const navigateToProject = () => {
-    router.push("/project")
+    router.push("#project")
   }
 
   const navigateToContact = () => {
-    router.push("/contact")
+    router.push("#contact")
   }
+
+  const handleMode = () => {
+    console.log("change mode")
+  }
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.classList.add(storedTheme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+
+    // Add or remove dark mode class
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(newTheme);
+
+    // Save theme preference
+    localStorage.setItem("theme", newTheme);
+  };
 
   return (
     <div className="grid grid-flow-col">
       <div className="hover:cursor-pointer">
-        <DotLottieReact
-          src="logo.lottie"
-          loop
-          autoplay
-          style={{ width: "150px" }}
-          onClick={navigateToHome}
-        />
       </div>
       <div className="justify-center mb-5">
-        <Menubar className="hidden md:flex mt-5">
+        <Menubar className="hidden md:flex mt-5 dark:text-white">
           <MenubarMenu>
-            <MenubarTrigger onClick={navigateToAbout}>About</MenubarTrigger>
+            <MenubarTrigger onClick={navigateToAbout}><Home size={20} /></MenubarTrigger>
+          </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTrigger onClick={navigateToExperience}>Experience</MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger onClick={navigateToProject}>Project</MenubarTrigger>
@@ -45,22 +67,26 @@ const Bar = () => {
           <MenubarMenu>
             <MenubarTrigger onClick={navigateToContact}>Contact</MenubarTrigger>
           </MenubarMenu>
+          <MenubarMenu>
+            <MenubarTrigger onClick={toggleTheme}> {theme === "dark" ? <Moon size={25} color="white" /> : <Sun size={25} />} </MenubarTrigger>
+          </MenubarMenu>
         </Menubar>
-        <Menubar className="flex flex-col place-self-center md:hidden">
+        <Menubar className="flex mt-1 md:hidden">
           <MenubarMenu>
             <MenubarTrigger>
-              <List size={30} />
+              <List size={25} color={theme === "dark" ? "white" : "black"} />
             </MenubarTrigger>
+            <MenubarMenu>
+              <MenubarTrigger onClick={toggleTheme}> {theme === "dark" ? <Moon size={25} color="white" /> : <Sun size={25} />}</MenubarTrigger>
+            </MenubarMenu>
             <MenubarContent>
               <MenubarItem onClick={navigateToAbout}>About</MenubarItem>
+              <MenubarItem onClick={navigateToExperience}>Experience</MenubarItem>
               <MenubarItem onClick={navigateToProject}>Project</MenubarItem>
               <MenubarItem onClick={navigateToContact}>Contact</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
-      </div>
-      <div className="place-self-center">
-        <Sun size={30}/>
       </div>
     </div>
   )

@@ -1,35 +1,28 @@
 "use client"
-import TypeIt from "typeit-react"
+
+import Experience from "@/components/about/experience"
+import Intro from "@/components/about/intro"
+import ContactMe from "@/components/contact/contact"
+import ProjectTabs from "@/components/project/projectTabs"
 
 export default function Home() {
 
-  function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#'; for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
   return (
-    <div className="h-full w-screen bg-background">
-      <div className="flex flex-col items-center justify-center relative h-screen mt-30 hidden md:flex">
-        <div className="absolute z-10 -skew-y-12 -rotate-30"> 
-          <span className="text-6xl">
-          <TypeIt options={{
-            loop: false,
-            breakLines: true,
-            strings: ["Hello World!", "I am Pui Shan."],
-            waitUntilVisible: true,
-            afterStep: function (instance: any) {
-              instance.getElement().style.color = getRandomColor();
-            },
-          }} >
-          </TypeIt>
-        </span>
+    <div className="h-full w-screen bg-background dark:text-white">
+      <div className="flex flex-col items-center relative h-screen mt-30">
+        <div className={`md:w-1/2 w-3/4 mt-10`}>
+          <div className="mt-10" id="about">
+            <Intro />
+          </div>
         </div>
-        <div className="absolute z-0">
-          <img src="pc2.png" alt="pc" className="w-full h-auto" />
+        <div className="justify-center justify-items-center mt-10 w-3/4" id="experience">
+          <Experience />
+        </div>
+        <div className="justify-center justify-items-center mt-10 w-3/4" id="project">
+          <ProjectTabs />
+        </div>
+        <div className="justify-center justify-items-center mt-10 w-3/4" id="contact">
+          <ContactMe />
         </div>
       </div>
     </div>
